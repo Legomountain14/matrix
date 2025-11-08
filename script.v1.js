@@ -168,6 +168,13 @@ const demigirl = [
     '#FDADC8',
     '#FFFFFF'
 ];
+const omnisexual = [
+    '#FE9ACE',
+    '#FF53BF',
+    '#200044',
+    '#6760FE',
+    '#8EA6FF'
+];
 
 
 const colorSchemes = [
@@ -200,7 +207,7 @@ function drawMatrix() {
     if (customColor) {
         ctx.fillStyle = customColor;
     }
-    ctx.font = 'bold 15px monospace';
+    ctx.font = 'bold 15px Cascadia Code';
     
     
 
@@ -595,6 +602,26 @@ function drawMatrix() {
         }
 
 
+        else if (pride == "15") {
+
+            if (currentrow <= (rows/5)) {
+                ctx.fillStyle = omnisexual[0];
+            }
+            else if (currentrow <= (rows/5)*2) {
+                ctx.fillStyle = omnisexual[1];
+            }
+            else if (currentrow <= (rows/5)*3) {
+                ctx.fillStyle = omnisexual[2];
+            }
+            else if (currentrow <= (rows/5)*4) {
+                ctx.fillStyle = omnisexual[3];
+            }
+            else if (currentrow > (rows/5)*4) {
+                ctx.fillStyle = omnisexual[4];
+            }
+        }
+
+
 
 
 
@@ -633,23 +660,36 @@ function drawMatrix() {
 }
 
 
-function playBadApple() {
-    if (frame == 1) {
-        badAppleAudio.play();
-    }
+async function playBadApple() {
+    badAppleAudio.play();
 }
 var frame = 0
 
-function drawCustomAnim() {
+async function drawCustomAnim() {
+    var lineheight = 25
     frame += 1
     if (anim == "1") {
-        animation = animation1
-        playBadApple()
+        const { animation1 } = await import('./animations/animation1.js') 
+        var animation = animation1
+        lineheight = 30
+        ctx.font = 'bold 25px Cascadia Code';
     }
     else if (anim == "2") {
-        animation = animation2
+        const { animation2 } = await import('./animations/animation2.js') 
+        var animation = animation2
+        lineheight = 15
+        ctx.font = 'bold 15px Cascadia Code';
     }
-    ctx.font = 'bold 35px monospace';
+    else if (anim == "3") {
+        const { animation3 } = await import('./animations/animation3.js') 
+        var animation = animation3
+        ctx.font = 'bold 25px Cascadia Code';
+    }
+    else if (anim == "4") {
+        const { animation4 } = await import('./animations/animation4.js') 
+        var animation = animation4
+        ctx.font = 'bold 25px Cascadia Code';
+    }
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -660,14 +700,10 @@ function drawCustomAnim() {
     }
     var lines = animation[frame].split('\n');
 
-    var lines = animation[frame].split('\n');
-
-    // setTimeout(animate, (1000/fps));
 
 
     var x = canvas.width/2
     var y = canvas.height/2
-    var lineheight = 45
     ctx.textAlign = "center";
     for (var i = 0; i<lines.length; i++)
         ctx.fillText(lines[i], x, y + ((i*lineheight)-(lines.length*lineheight/2)) );
@@ -689,20 +725,25 @@ function animate() {
     }
     else {
         if (anim == 1) {
-            playBadApple()
-            drawCustomAnim()
+            setTimeout(() => { drawCustomAnim(); }, 0);
+            setTimeout(() => { playBadApple(); }, 0);
             setTimeout(animate, (1000/33));
+        }
+        else if (anim == 2) {
+            setTimeout(() => { drawCustomAnim(); }, 0);
+            setTimeout(() => { playBadApple(); }, 1000);
+            setTimeout(animate, (1000/24));
         }
         else {
             drawCustomAnim()
-            setTimeout(animate, (1000/10));
+            setTimeout(animate, (1000/20));
         }
         
     }
     // Adjust the delay (in milliseconds) for desired speed
 }
 
-var badAppleAudio = new Audio('./bad_apple.ogg')
+var badAppleAudio = new Audio('./BadApple.ogg')
 
 // Start the animation
 animate();
