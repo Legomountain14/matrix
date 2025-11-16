@@ -706,7 +706,7 @@ async function drawCustomAnim() {
     var y = canvas.height/2
     ctx.textAlign = "center";
     for (var i = 0; i<lines.length; i++)
-        ctx.fillText(lines[i], x, y + ((i*lineheight)-(lines.length*lineheight/2)) );
+        ctx.fillText(lines[i], x, y + ((i*lineheight)-((lines.length*lineheight)/2)) );
 
     
     // ctx.fillText(frame, canvas.width/4, canvas.height/4)
