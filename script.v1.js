@@ -6,9 +6,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const columns = Math.floor((canvas.width / 20)+1); 
+const columns = Math.floor((canvas.width / 20)+1);
 // Number of columns
-const rows = Math.floor((canvas.height / 20)); 
+const rows = Math.floor((canvas.height / 20));
 const rowsPX = rows*20
 
 const matrix_old = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()*&^%+-/~{[|`]}'; // Characters to be displayed
@@ -191,11 +191,13 @@ const colorSchemes = [
     agender,
     aroace,
     cupioromantic,
-    demiboy
+    demiboy,
+    demigirl,
+    omnisexual
 ];
 
 
-        
+
 // Function to draw the matrix effect
 function drawMatrix() {
     // Set a semi-transparent black background
@@ -208,15 +210,15 @@ function drawMatrix() {
         ctx.fillStyle = customColor;
     }
     ctx.font = 'bold 15px Cascadia Code';
-    
-    
+
+
 
     // Iterate over each column
     columnPositions.forEach((position, index) => {
         // Generate a random character
         const char = matrix[Math.floor(Math.random() * matrix.length)];
 //          ctx.fillStyle = '#FFFFFF';
-        
+
 
         currentrow = Math.floor((position / 20));
 
@@ -342,7 +344,7 @@ function drawMatrix() {
                 }
             }
         }
-        
+
 
         else if (pride == "2") {
             if (currentrow <= (rows/6)) {
@@ -669,24 +671,24 @@ async function drawCustomAnim() {
     var lineheight = 25
     frame += 1
     if (anim == "1") {
-        const { animation1 } = await import('./animations/animation1.js') 
+        const { animation1 } = await import('./animations/animation1.js')
         var animation = animation1
         lineheight = 30
         ctx.font = 'bold 25px Cascadia Code';
     }
     else if (anim == "2") {
-        const { animation2 } = await import('./animations/animation2.js') 
+        const { animation2 } = await import('./animations/animation2.js')
         var animation = animation2
         lineheight = 15
         ctx.font = 'bold 15px Cascadia Code';
     }
     else if (anim == "3") {
-        const { animation3 } = await import('./animations/animation3.js') 
+        const { animation3 } = await import('./animations/animation3.js')
         var animation = animation3
         ctx.font = 'bold 25px Cascadia Code';
     }
     else if (anim == "4") {
-        const { animation4 } = await import('./animations/animation4.js') 
+        const { animation4 } = await import('./animations/animation4.js')
         var animation = animation4
         ctx.font = 'bold 25px Cascadia Code';
     }
@@ -708,7 +710,7 @@ async function drawCustomAnim() {
     for (var i = 0; i<lines.length; i++)
         ctx.fillText(lines[i], x, y + ((i*lineheight)-((lines.length*lineheight)/2)) );
 
-    
+
     // ctx.fillText(frame, canvas.width/4, canvas.height/4)
     // ctx.fillText(badAppleAudio.currentTime, (canvas.width/4)+80, canvas.height/4)
 
@@ -738,7 +740,7 @@ function animate() {
             drawCustomAnim()
             setTimeout(animate, (1000/20));
         }
-        
+
     }
     // Adjust the delay (in milliseconds) for desired speed
 }
