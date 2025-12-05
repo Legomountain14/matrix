@@ -8,12 +8,12 @@ canvas.height = window.innerHeight;
 
 const columns = Math.floor((canvas.width / 20)+1);
 // Number of columns
-const rows = Math.floor((canvas.height / 20));
-const rowsPX = rows*20
+const rows = Math.floor((canvas.height / 20)+1);
+const rowsPX = rows*20+20
 
 const matrix_old = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()*&^%+-/~{[|`]}'; // Characters to be displayed
 const matrix_maybe = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ二コソヤ日012345789Z:・¦｜."=*+-<>'; // Characters to be displayed
-const matrix = '259817:."=*+-¦|_Zｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ '; // Characters to be displayed
+const matrix = '259817:."=*+-¦|_Zｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ'; // Characters to be displayed
 
 
 const stripewidth = Math.round(columns/12.5)
@@ -33,13 +33,12 @@ const searchParams = new URLSearchParams(window.location.search);
 const pride = searchParams.get("pride")
 const rand = searchParams.get("rand")
 const randColors = parseInt(searchParams.get("randc"))
-customColor = searchParams.get("hex")
+var customColor = searchParams.get("hex")
 console.log(searchParams.get("hex"))
 const showCursor = searchParams.get("cursor")
 const anim = searchParams.get("anim")
 
 
-customColor = '#' + searchParams.get("hex")
 
 
 
@@ -196,456 +195,531 @@ const colorSchemes = [
     omnisexual
 ];
 
+function getColor(currentrow, index) {
+    if (pride == "1") {
+        if (currentrow <= (rows/6)) {
+            if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[5];
+            }
+        }
+        else if (currentrow <= (rows/6)*2) {
+            if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[6];
+            }
+        }
+        else if (currentrow <= (rows/6)*3) {
+            if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[7];
+            }
+        }
+        else if (currentrow <= (rows/6)*4) {
+            if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[8];
+            }
+        }
+        else if (currentrow <= (rows/6)*5) {
+            if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[9];
+            }
+        }
+        else if (currentrow > (rows/6)*5) {
+            if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[1];
+            }
+        }
+    }
 
+
+    else if (pride == "2") {
+        if (currentrow <= (rows/6)) {
+            customColor = rainbow[0];
+        }
+        else if (currentrow <= (rows/6)*2) {
+            customColor = rainbow[1];
+        }
+        else if (currentrow <= (rows/6)*3) {
+            customColor = rainbow[2];
+        }
+        else if (currentrow <= (rows/6)*4) {
+            customColor = rainbow[3];
+        }
+        else if (currentrow <= (rows/6)*5) {
+            customColor = rainbow[4];
+        }
+        else if (currentrow > (rows/6)*5) {
+            customColor = rainbow[5];
+        }
+    }
+
+
+    else if (pride == "3") {
+
+        if (currentrow <= (rows/4)) {
+            customColor = nonbinary[0];
+        }
+        else if (currentrow <= (rows/4)*2) {
+            customColor = nonbinary[1];
+        }
+        else if (currentrow <= (rows/4)*3) {
+            customColor = nonbinary[2];
+        }
+        else if (currentrow > (rows/4)*3) {
+            customColor = nonbinary[3];
+        }
+    }
+
+
+    else if (pride == "4") {
+
+        if (currentrow <= (rows/5)) {
+            customColor = trans[0];
+        }
+        else if (currentrow <= (rows/5)*2) {
+            customColor = trans[1];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = trans[2];
+        }
+        else if (currentrow <= (rows/5)*4) {
+            customColor = trans[1];
+        }
+        else if (currentrow > (rows/5)*4) {
+            customColor = trans[0];
+        }
+    }
+
+
+    else if (pride == "5") {
+        if (currentrow <= (rows/7)) {
+            customColor = lesbian[0];
+        }
+        else if (currentrow <= (rows/7)*2) {
+            customColor = lesbian[1];
+        }
+        else if (currentrow <= (rows/7)*3) {
+            customColor = lesbian[2];
+        }
+        else if (currentrow <= (rows/7)*4) {
+            customColor = lesbian[3];
+        }
+        else if (currentrow <= (rows/7)*5) {
+            customColor = lesbian[4];
+        }
+        else if (currentrow <= (rows/7)*6) {
+            customColor = lesbian[5];
+        }
+        else if (currentrow > (rows/7)*6) {
+            customColor = lesbian[6];
+        }
+    }
+
+
+    else if (pride == "6") {
+        if (currentrow <= (rows/5)*2) {
+            customColor = bi[0];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = bi[1];
+        }
+        else if (currentrow > (rows/5)*3) {
+            customColor = bi[2];
+        }
+    }
+
+
+    else if (pride == "7") {
+        if (currentrow <= (rows/3)) {
+            customColor = pan[0];
+        }
+        else if (currentrow <= (rows/3)*2) {
+            customColor = pan[1];
+        }
+        else if (currentrow > (rows/3)*2) {
+            customColor = pan[2];
+        }
+    }
+
+
+    else if (pride == "8") {
+        if (currentrow <= (rows/4)) {
+            customColor = ace[0];
+        }
+        else if (currentrow <= (rows/4)*2) {
+            customColor = ace[1];
+        }
+        else if (currentrow <= (rows/4)*3) {
+            customColor = ace[2];
+        }
+        else if (currentrow > (rows/4)*3) {
+            customColor = ace[3];
+        }
+    }
+
+
+    else if (pride == "9") {
+        if (currentrow <= (rows/5)) {
+            customColor = aromantic[0];
+        }
+        else if (currentrow <= (rows/5)*2) {
+            customColor = aromantic[1];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = aromantic[2];
+        }
+        else if (currentrow <= (rows/5)*4) {
+            customColor = aromantic[3];
+        }
+        else if (currentrow > (rows/5)*4) {
+            customColor = aromantic[4];
+        }
+    }
+
+
+    else if (pride == "10") {
+        if (currentrow <= (rows/7)) {
+            customColor = agender[0];
+        }
+        else if (currentrow <= (rows/7)*2) {
+            customColor = agender[1];
+        }
+        else if (currentrow <= (rows/7)*3) {
+            customColor = agender[2];
+        }
+        else if (currentrow <= (rows/7)*4) {
+            customColor = agender[3];
+        }
+        else if (currentrow <= (rows/7)*5) {
+            customColor = agender[2];
+        }
+        else if (currentrow <= (rows/7)*6) {
+            customColor = agender[1];
+        }
+        else if (currentrow > (rows/7)*6) {
+            customColor = agender[0];
+        }
+    }
+
+
+    else if (pride == "11") {
+        if (currentrow <= (rows/5)) {
+            customColor = aroace[0];
+        }
+        else if (currentrow <= (rows/5)*2) {
+            customColor = aroace[1];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = aroace[2];
+        }
+        else if (currentrow <= (rows/5)*4) {
+            customColor = aroace[3];
+        }
+        else if (currentrow <= (rows/5)*5) {
+            customColor = aroace[4];
+        }
+    }
+
+
+    else if (pride == "12") {
+        if (currentrow <= (rows/5)) {
+            customColor = cupioromantic[0];
+        }
+        else if (currentrow <= (rows/5)*2) {
+            customColor = cupioromantic[1];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = cupioromantic[2];
+        }
+        else if (currentrow <= (rows/5)*4) {
+            customColor = cupioromantic[3];
+        }
+        else if (currentrow <= (rows/5)*5) {
+            customColor = cupioromantic[4];
+        }
+    }
+
+
+    else if (pride == "13") {
+        if (currentrow <= (rows/7)) {
+            customColor = demiboy[0];
+        }
+        else if (currentrow <= (rows/7)*2) {
+            customColor = demiboy[1];
+        }
+        else if (currentrow <= (rows/7)*3) {
+            customColor = demiboy[2];
+        }
+        else if (currentrow <= (rows/7)*4) {
+            customColor = demiboy[3];
+        }
+        else if (currentrow <= (rows/7)*5) {
+            customColor = demiboy[2];
+        }
+        else if (currentrow <= (rows/7)*6) {
+            customColor = demiboy[1];
+        }
+        else if (currentrow > (rows/7)*6) {
+            customColor = demiboy[0];
+        }
+    }
+
+
+    else if (pride == "14") {
+        if (currentrow <= (rows/7)) {
+            customColor = demigirl[0];
+        }
+        else if (currentrow <= (rows/7)*2) {
+            customColor = demigirl[1];
+        }
+        else if (currentrow <= (rows/7)*3) {
+            customColor = demigirl[2];
+        }
+        else if (currentrow <= (rows/7)*4) {
+            customColor = demigirl[3];
+        }
+        else if (currentrow <= (rows/7)*5) {
+            customColor = demigirl[2];
+        }
+        else if (currentrow <= (rows/7)*6) {
+            customColor = demigirl[1];
+        }
+        else if (currentrow > (rows/7)*6) {
+            customColor = demigirl[0];
+        }
+    }
+
+
+    else if (pride == "15") {
+
+        if (currentrow <= (rows/5)) {
+            customColor = omnisexual[0];
+        }
+        else if (currentrow <= (rows/5)*2) {
+            customColor = omnisexual[1];
+        }
+        else if (currentrow <= (rows/5)*3) {
+            customColor = omnisexual[2];
+        }
+        else if (currentrow <= (rows/5)*4) {
+            customColor = omnisexual[3];
+        }
+        else if (currentrow > (rows/5)*4) {
+            customColor = omnisexual[4];
+        }
+    }
+
+
+
+
+
+    else if (rand == "1" || randColors) {
+        if (!randColors) {
+            const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
+            var colorScheme = colorSchemes[randomColorSchemeIndex]
+            var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+            var randomColor = colorScheme[randomColorIndex];
+            customColor = randomColor;
+        }
+        else {
+            var colorScheme = colorSchemes[randColors]
+            var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+            var randomColor = colorScheme[randomColorIndex];
+            customColor = randomColor;
+        }
+        framedata[currentrow][index].color = customColor
+    }
+
+}
+
+
+const rowsss = rows+1
+var framedata = Array.from({ length: (rows+4) }, () => new Array(columns+4).fill({character: null, opacity: 0, color: null}));
 
 // Function to draw the matrix effect
 function drawMatrix() {
     // Set a semi-transparent black background
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Set the text color
-    ctx.fillStyle = '#00ff00';
-    if (customColor) {
-        ctx.fillStyle = customColor;
-    }
+    // ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.font = 'bold 15px Cascadia Code';
 
+    // Edit framedata
+    framedata = framedata.map(row =>
+        row.map(val => {
+            if (val.opacity == 0) {
+                return { character: null, opacity: 0, color: null }
+            }
+            else {
+                return { character: val.character, opacity: Math.max(0, val.opacity - 0.05), color: val.color }
+            }
+        }
+    ));
 
+
+
+
+    // Draw Previous Frame
+    for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++) {
+
+            var alpha = framedata[row][column].opacity
+
+
+            if (rand == "1" || randColors) {
+                if (framedata[row][column].color) {
+                    var color = tinycolor(framedata[row][column].color)
+                    getColor(row, column)
+                    ctx.fillStyle = color.toRgbString()
+                }
+            }
+            else {
+                var color = tinycolor("00ff00").setAlpha(alpha)
+                getColor(row, column)
+                ctx.fillStyle = color.toRgbString()
+                if (customColor) {
+                    color = tinycolor(customColor).setAlpha(alpha)
+                    ctx.fillStyle = color.toRgbString()
+                }
+            }
+
+            const char = matrix[Math.floor(Math.random() * matrix.length)];
+
+            ctx.font = 'bold 15px Cascadia Code';
+
+            ctx.fillText(char, column * 20, row * 20);
+        }
+    }
 
     // Iterate over each column
     columnPositions.forEach((position, index) => {
         // Generate a random character
         const char = matrix[Math.floor(Math.random() * matrix.length)];
-//          ctx.fillStyle = '#FFFFFF';
 
 
         currentrow = Math.floor((position / 20));
 
-        if (pride == "1") {
-            if (currentrow <= (rows/6)) {
-                if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[5];
-                }
+        getColor(currentrow, index)
+
+
+        var alpha
+        if (currentrow < rows) {
+            if (framedata[currentrow][index].opacity > 0) {
+                alpha = framedata[currentrow][index].opacity
+            }else {
+                alpha = 1
             }
-            else if (currentrow <= (rows/6)*2) {
-                if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[6];
-                }
-            }
-            else if (currentrow <= (rows/6)*3) {
-                if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[7];
-                }
-            }
-            else if (currentrow <= (rows/6)*4) {
-                if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[8];
-                }
-            }
-            else if (currentrow <= (rows/6)*5) {
-                if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[9];
-                }
-            }
-            else if (currentrow > (rows/6)*5) {
-                if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = progressPride[0];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = progressPride[1];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = progressPride[2];
-                }
-                else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[3];
-                }
-                else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = progressPride[4];
-                }
-                else {
-                    ctx.fillStyle = progressPride[1];
-                }
-            }
+        }
+        else {
+            alpha = 0
         }
 
 
-        else if (pride == "2") {
-            if (currentrow <= (rows/6)) {
-                ctx.fillStyle = rainbow[0];
-            }
-            else if (currentrow <= (rows/6)*2) {
-                ctx.fillStyle = rainbow[1];
-            }
-            else if (currentrow <= (rows/6)*3) {
-                ctx.fillStyle = rainbow[2];
-            }
-            else if (currentrow <= (rows/6)*4) {
-                ctx.fillStyle = rainbow[3];
-            }
-            else if (currentrow <= (rows/6)*5) {
-                ctx.fillStyle = rainbow[4];
-            }
-            else if (currentrow > (rows/6)*5) {
-                ctx.fillStyle = rainbow[5];
-            }
-        }
+        // framedata[currentrow][index].character = char
 
 
-        else if (pride == "3") {
-
-            if (currentrow <= (rows/4)) {
-                ctx.fillStyle = nonbinary[0];
-            }
-            else if (currentrow <= (rows/4)*2) {
-                ctx.fillStyle = nonbinary[1];
-            }
-            else if (currentrow <= (rows/4)*3) {
-                ctx.fillStyle = nonbinary[2];
-            }
-            else if (currentrow > (rows/4)*3) {
-                ctx.fillStyle = nonbinary[3];
-            }
-        }
-
-
-        else if (pride == "4") {
-
-            if (currentrow <= (rows/5)) {
-                ctx.fillStyle = trans[0];
-            }
-            else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = trans[1];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = trans[2];
-            }
-            else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = trans[1];
-            }
-            else if (currentrow > (rows/5)*4) {
-                ctx.fillStyle = trans[0];
-            }
-        }
-
-
-        else if (pride == "5") {
-            if (currentrow <= (rows/7)) {
-                ctx.fillStyle = lesbian[0];
-            }
-            else if (currentrow <= (rows/7)*2) {
-                ctx.fillStyle = lesbian[1];
-            }
-            else if (currentrow <= (rows/7)*3) {
-                ctx.fillStyle = lesbian[2];
-            }
-            else if (currentrow <= (rows/7)*4) {
-                ctx.fillStyle = lesbian[3];
-            }
-            else if (currentrow <= (rows/7)*5) {
-                ctx.fillStyle = lesbian[4];
-            }
-            else if (currentrow <= (rows/7)*6) {
-                ctx.fillStyle = lesbian[5];
-            }
-            else if (currentrow > (rows/7)*6) {
-                ctx.fillStyle = lesbian[6];
-            }
-        }
-
-
-        else if (pride == "6") {
-            if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = bi[0];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = bi[1];
-            }
-            else if (currentrow > (rows/5)*3) {
-                ctx.fillStyle = bi[2];
-            }
-        }
-
-
-        else if (pride == "7") {
-            if (currentrow <= (rows/3)) {
-                ctx.fillStyle = pan[0];
-            }
-            else if (currentrow <= (rows/3)*2) {
-                ctx.fillStyle = pan[1];
-            }
-            else if (currentrow > (rows/3)*2) {
-                ctx.fillStyle = pan[2];
-            }
-        }
-
-
-        else if (pride == "8") {
-            if (currentrow <= (rows/4)) {
-                ctx.fillStyle = ace[0];
-            }
-            else if (currentrow <= (rows/4)*2) {
-                ctx.fillStyle = ace[1];
-            }
-            else if (currentrow <= (rows/4)*3) {
-                ctx.fillStyle = ace[2];
-            }
-            else if (currentrow > (rows/4)*3) {
-                ctx.fillStyle = ace[3];
-            }
-        }
-
-
-        else if (pride == "9") {
-            if (currentrow <= (rows/5)) {
-                ctx.fillStyle = aromantic[0];
-            }
-            else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = aromantic[1];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = aromantic[2];
-            }
-            else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = aromantic[3];
-            }
-            else if (currentrow > (rows/5)*4) {
-                ctx.fillStyle = aromantic[4];
-            }
-        }
-
-
-        else if (pride == "10") {
-            if (currentrow <= (rows/7)) {
-                ctx.fillStyle = agender[0];
-            }
-            else if (currentrow <= (rows/7)*2) {
-                ctx.fillStyle = agender[1];
-            }
-            else if (currentrow <= (rows/7)*3) {
-                ctx.fillStyle = agender[2];
-            }
-            else if (currentrow <= (rows/7)*4) {
-                ctx.fillStyle = agender[3];
-            }
-            else if (currentrow <= (rows/7)*5) {
-                ctx.fillStyle = agender[2];
-            }
-            else if (currentrow <= (rows/7)*6) {
-                ctx.fillStyle = agender[1];
-            }
-            else if (currentrow > (rows/7)*6) {
-                ctx.fillStyle = agender[0];
-            }
-        }
-
-
-        else if (pride == "11") {
-            if (currentrow <= (rows/5)) {
-                ctx.fillStyle = aroace[0];
-            }
-            else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = aroace[1];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = aroace[2];
-            }
-            else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = aroace[3];
-            }
-            else if (currentrow <= (rows/5)*5) {
-                ctx.fillStyle = aroace[4];
-            }
-        }
-
-
-        else if (pride == "12") {
-            if (currentrow <= (rows/5)) {
-                ctx.fillStyle = cupioromantic[0];
-            }
-            else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = cupioromantic[1];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = cupioromantic[2];
-            }
-            else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = cupioromantic[3];
-            }
-            else if (currentrow <= (rows/5)*5) {
-                ctx.fillStyle = cupioromantic[4];
-            }
-        }
-
-
-        else if (pride == "13") {
-            if (currentrow <= (rows/7)) {
-                ctx.fillStyle = demiboy[0];
-            }
-            else if (currentrow <= (rows/7)*2) {
-                ctx.fillStyle = demiboy[1];
-            }
-            else if (currentrow <= (rows/7)*3) {
-                ctx.fillStyle = demiboy[2];
-            }
-            else if (currentrow <= (rows/7)*4) {
-                ctx.fillStyle = demiboy[3];
-            }
-            else if (currentrow <= (rows/7)*5) {
-                ctx.fillStyle = demiboy[2];
-            }
-            else if (currentrow <= (rows/7)*6) {
-                ctx.fillStyle = demiboy[1];
-            }
-            else if (currentrow > (rows/7)*6) {
-                ctx.fillStyle = demiboy[0];
-            }
-        }
-
-
-        else if (pride == "14") {
-            if (currentrow <= (rows/7)) {
-                ctx.fillStyle = demigirl[0];
-            }
-            else if (currentrow <= (rows/7)*2) {
-                ctx.fillStyle = demigirl[1];
-            }
-            else if (currentrow <= (rows/7)*3) {
-                ctx.fillStyle = demigirl[2];
-            }
-            else if (currentrow <= (rows/7)*4) {
-                ctx.fillStyle = demigirl[3];
-            }
-            else if (currentrow <= (rows/7)*5) {
-                ctx.fillStyle = demigirl[2];
-            }
-            else if (currentrow <= (rows/7)*6) {
-                ctx.fillStyle = demigirl[1];
-            }
-            else if (currentrow > (rows/7)*6) {
-                ctx.fillStyle = demigirl[0];
-            }
-        }
-
-
-        else if (pride == "15") {
-
-            if (currentrow <= (rows/5)) {
-                ctx.fillStyle = omnisexual[0];
-            }
-            else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = omnisexual[1];
-            }
-            else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = omnisexual[2];
-            }
-            else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = omnisexual[3];
-            }
-            else if (currentrow > (rows/5)*4) {
-                ctx.fillStyle = omnisexual[4];
-            }
+        // Set text style
+        var color = tinycolor("00ff00").setAlpha(alpha)
+        ctx.fillStyle = color.toRgbString()
+        if (customColor) {
+            color = tinycolor(customColor).setAlpha(alpha)
+            ctx.fillStyle = color.toRgbString()
         }
 
 
 
 
-
-        else if (rand == "1" || randColors) {
-            if (!randColors) {
-                const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
-                var colorScheme = colorSchemes[randomColorSchemeIndex]
-                var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
-                var randomColor = colorScheme[randomColorIndex];
-                ctx.fillStyle = randomColor;
-            }
-            else {
-                var colorScheme = colorSchemes[randColors]
-                var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
-                var randomColor = colorScheme[randomColorIndex];
-                ctx.fillStyle = randomColor;
-            }
+        if (currentrow < rows) {
+            framedata[currentrow][index].opacity = color.getAlpha()
         }
-
-
-
-
 
 
         // Display the character at the current position]
@@ -659,6 +733,8 @@ function drawMatrix() {
             columnPositions[index] = 0;
         }
     });
+    // console.log(columnPositions)
+    // console.log(framedata)
 }
 
 
@@ -723,7 +799,7 @@ async function drawCustomAnim() {
 function animate() {
     if (!anim) {
         drawMatrix()
-        setTimeout(animate, (1000/20));
+        setTimeout(animate, (1000/25));
     }
     else {
         if (anim == 1) {
