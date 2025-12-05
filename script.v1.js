@@ -8,7 +8,7 @@ canvas.height = window.innerHeight;
 
 const columns = Math.floor((canvas.width / 20)+1);
 // Number of columns
-const rows = Math.floor((canvas.height / 20)+1);
+const rows = Math.floor((canvas.height / 20)+2);
 const rowsPX = rows*20+20
 
 const matrix_old = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()*&^%+-/~{[|`]}'; // Characters to be displayed
@@ -621,8 +621,7 @@ function getColor(currentrow, index) {
 }
 
 
-const rowsss = rows+1
-var framedata = Array.from({ length: (rows+4) }, () => new Array(columns+4).fill({character: null, opacity: 0, color: null}));
+var framedata = Array.from({ length: (rows) }, () => new Array(columns).fill({character: null, opacity: 0, color: null}));
 
 // Function to draw the matrix effect
 function drawMatrix() {
@@ -733,8 +732,6 @@ function drawMatrix() {
             columnPositions[index] = 0;
         }
     });
-    // console.log(columnPositions)
-    // console.log(framedata)
 }
 
 
