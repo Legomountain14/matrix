@@ -670,7 +670,8 @@ function drawMatrix() {
                 }
             }
 
-            const char = matrix[Math.floor(Math.random() * matrix.length)];
+            const char = framedata[row][column].character
+            // const char = matrix[Math.floor(Math.random() * matrix.length)];
 
             ctx.font = 'bold 15px Cascadia Code';
 
@@ -702,7 +703,6 @@ function drawMatrix() {
         }
 
 
-        // framedata[currentrow][index].character = char
 
 
         // Set text style
@@ -718,6 +718,7 @@ function drawMatrix() {
 
         if (currentrow < rows) {
             framedata[currentrow][index].opacity = color.getAlpha()
+            framedata[currentrow][index].character = char
         }
 
 
