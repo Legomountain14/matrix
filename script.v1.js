@@ -80,6 +80,7 @@ const progressPride = [
     '#FFFFFF',
     '#E40303',
     '#FF8C00',
+    '#FFED00',
     '#008026',
     '#004CFF',
     '#732982'
@@ -298,6 +299,26 @@ function getColor(currentrow, index) {
             }
         }
         else if (currentrow > (rows/6)*5) {
+            if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
+                customColor = progressPride[0];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
+                customColor = progressPride[1];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
+                customColor = progressPride[2];
+            }
+            else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
+                customColor = progressPride[3];
+            }
+            else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
+                customColor = progressPride[4];
+            }
+            else {
+                customColor = progressPride[10];
+            }
+        }
+        else if (currentrow > (rows/6)*6) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
                 customColor = progressPride[0];
             }
@@ -601,22 +622,7 @@ function getColor(currentrow, index) {
 
 
 
-    else if (rand == "1" || randColors) {
-        if (!randColors) {
-            const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
-            var colorScheme = colorSchemes[randomColorSchemeIndex]
-            var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
-            var randomColor = colorScheme[randomColorIndex];
-            customColor = randomColor;
-        }
-        else {
-            var colorScheme = colorSchemes[randColors]
-            var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
-            var randomColor = colorScheme[randomColorIndex];
-            customColor = randomColor;
-        }
-        framedata[currentrow][index].color = customColor
-    }
+
 
 }
 
@@ -653,22 +659,30 @@ function drawMatrix() {
             var alpha = framedata[row][column].opacity
 
 
-            if (rand == "1" || randColors) {
-                if (framedata[row][column].color) {
-                    var color = tinycolor(framedata[row][column].color)
-                    getColor(row, column)
-                    ctx.fillStyle = color.toRgbString()
-                }
+            // if (rand == "1" || randColors) {
+            //     if (framedata[row][column].color) {
+            //         var color = tinycolor(framedata[row][column].color)
+            //         getColor(row, column)
+            //         ctx.fillStyle = color.toRgbString()
+            //     }
+            // }
+            // else {
+            var color = tinycolor("00ff00").setAlpha(alpha)
+
+            if (rand == "1" || randColors && framedata[row][column].color) {
+                customColor = tinycolor(framedata[row][column].color)
             }
             else {
-                var color = tinycolor("00ff00").setAlpha(alpha)
                 getColor(row, column)
                 ctx.fillStyle = color.toRgbString()
-                if (customColor) {
-                    color = tinycolor(customColor).setAlpha(alpha)
-                    ctx.fillStyle = color.toRgbString()
-                }
+
             }
+            if (customColor) {
+                color = tinycolor(customColor).setAlpha(alpha)
+                ctx.fillStyle = color.toRgbString()
+            }
+
+
 
             const char = framedata[row][column].character
             // const char = matrix[Math.floor(Math.random() * matrix.length)];
@@ -690,12 +704,34 @@ function drawMatrix() {
         getColor(currentrow, index)
 
 
+
+
+
+
         var alpha
         if (currentrow < rows) {
             if (framedata[currentrow][index].opacity > 0) {
                 alpha = framedata[currentrow][index].opacity
-            }else {
+            } else {
                 alpha = 1
+            }
+            if (rand == "1" || randColors && !framedata[currentrow][index].character) {
+                if (!randColors) {
+                    const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
+                    var colorScheme = colorSchemes[randomColorSchemeIndex]
+                    var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+                    var randomColor = colorScheme[randomColorIndex];
+                    customColor = randomColor;
+                }
+                else {
+                    var colorScheme = colorSchemes[randColors]
+                    var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+                    var randomColor = colorScheme[randomColorIndex];
+                    customColor = randomColor;
+                }
+                if (currentrow < rows) {
+                    framedata[currentrow][index].color = customColor
+                }
             }
         }
         else {
@@ -707,11 +743,10 @@ function drawMatrix() {
 
         // Set text style
         var color = tinycolor("00ff00").setAlpha(alpha)
-        ctx.fillStyle = color.toRgbString()
         if (customColor) {
             color = tinycolor(customColor).setAlpha(alpha)
-            ctx.fillStyle = color.toRgbString()
         }
+        ctx.fillStyle = color.toRgbString()
 
 
 
@@ -719,6 +754,7 @@ function drawMatrix() {
         if (currentrow < rows) {
             framedata[currentrow][index].opacity = color.getAlpha()
             framedata[currentrow][index].character = char
+            framedata[currentrow][index].color = color.toHexString()
         }
 
 
