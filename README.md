@@ -30,8 +30,8 @@ Can also render pride flags and stuff.
     - `?rand=1`
 - Random With Custom Color Scheme
     - `?randc=X` (replace `X` with the flag's id you want it to use.)
-- Custom Hex Color
-    - `?hex=ffffff` (use whatever hex code you want.)
+- Custom Color using Tinycolor
+    - `?color=ffffff` (use whatever color code you want.)
 
 ## Animations
 - [Bad Apple](https://legomountain14.github.io/matrix/?anim=1) - Remember to allow audio autoplay in your browser settings. 

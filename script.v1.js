@@ -635,7 +635,7 @@ const rainbowFlag = [
 
 
 
-    
+
 function flag(flagData, currentrow, index) {
     for (let flagDataRow = 0; flagDataRow <= flagData.length; flagDataRow++) {
         if (currentrow <= (rows/5)*flagDataRow) {
@@ -646,7 +646,7 @@ function flag(flagData, currentrow, index) {
 
 function getCustomColor() {
     if (customColor0) {
-        color = customColor0
+        color = tinycolor(customColor0)
     }
 }
 
