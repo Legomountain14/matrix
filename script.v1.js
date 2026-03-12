@@ -32,18 +32,19 @@ const searchParams = new URLSearchParams(window.location.search);
 
 const pride = searchParams.get("pride")
 const rand = searchParams.get("rand")
-const randColors = parseInt(searchParams.get("randc"))
-var customColor = searchParams.get("hex")
-console.log(searchParams.get("hex"))
+const randFlagScheme = parseInt(searchParams.get("randc"))
 const showCursor = searchParams.get("cursor")
 const anim = searchParams.get("anim")
 
+const customColor0 = searchParams.get("color")
+const customColor1 = searchParams.get("color1")
+const customColor2 = searchParams.get("color2")
+const customColor3 = searchParams.get("color3")
 
 
 
 
 
-console.log(customColor)
 
 var element = document.getElementById("html");
 
@@ -200,142 +201,142 @@ function getColor(currentrow, index) {
     if (pride == "1") {
         if (currentrow <= (rows/6)) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[5];
+                color = progressPride[5];
             }
         }
         else if (currentrow <= (rows/6)*2) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[6];
+                color = progressPride[6];
             }
         }
         else if (currentrow <= (rows/6)*3) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[7];
+                color = progressPride[7];
             }
         }
         else if (currentrow <= (rows/6)*4) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[8];
+                color = progressPride[8];
             }
         }
         else if (currentrow <= (rows/6)*5) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[9];
+                color = progressPride[9];
             }
         }
         else if (currentrow > (rows/6)*5) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[10];
+                color = progressPride[10];
             }
         }
         else if (currentrow > (rows/6)*6) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                customColor = progressPride[0];
+                color = progressPride[0];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                customColor = progressPride[2];
+                color = progressPride[2];
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                customColor = progressPride[3];
+                color = progressPride[3];
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                customColor = progressPride[4];
+                color = progressPride[4];
             }
             else {
-                customColor = progressPride[1];
+                color = progressPride[1];
             }
         }
     }
@@ -343,22 +344,22 @@ function getColor(currentrow, index) {
 
     else if (pride == "2") {
         if (currentrow <= (rows/6)) {
-            customColor = rainbow[0];
+            color = rainbow[0];
         }
         else if (currentrow <= (rows/6)*2) {
-            customColor = rainbow[1];
+            color = rainbow[1];
         }
         else if (currentrow <= (rows/6)*3) {
-            customColor = rainbow[2];
+            color = rainbow[2];
         }
         else if (currentrow <= (rows/6)*4) {
-            customColor = rainbow[3];
+            color = rainbow[3];
         }
         else if (currentrow <= (rows/6)*5) {
-            customColor = rainbow[4];
+            color = rainbow[4];
         }
         else if (currentrow > (rows/6)*5) {
-            customColor = rainbow[5];
+            color = rainbow[5];
         }
     }
 
@@ -366,16 +367,16 @@ function getColor(currentrow, index) {
     else if (pride == "3") {
 
         if (currentrow <= (rows/4)) {
-            customColor = nonbinary[0];
+            color = nonbinary[0];
         }
         else if (currentrow <= (rows/4)*2) {
-            customColor = nonbinary[1];
+            color = nonbinary[1];
         }
         else if (currentrow <= (rows/4)*3) {
-            customColor = nonbinary[2];
+            color = nonbinary[2];
         }
         else if (currentrow > (rows/4)*3) {
-            customColor = nonbinary[3];
+            color = nonbinary[3];
         }
     }
 
@@ -383,218 +384,218 @@ function getColor(currentrow, index) {
     else if (pride == "4") {
 
         if (currentrow <= (rows/5)) {
-            customColor = trans[0];
+            color = trans[0];
         }
         else if (currentrow <= (rows/5)*2) {
-            customColor = trans[1];
+            color = trans[1];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = trans[2];
+            color = trans[2];
         }
         else if (currentrow <= (rows/5)*4) {
-            customColor = trans[1];
+            color = trans[1];
         }
         else if (currentrow > (rows/5)*4) {
-            customColor = trans[0];
+            color = trans[0];
         }
     }
 
 
     else if (pride == "5") {
         if (currentrow <= (rows/7)) {
-            customColor = lesbian[0];
+            color = lesbian[0];
         }
         else if (currentrow <= (rows/7)*2) {
-            customColor = lesbian[1];
+            color = lesbian[1];
         }
         else if (currentrow <= (rows/7)*3) {
-            customColor = lesbian[2];
+            color = lesbian[2];
         }
         else if (currentrow <= (rows/7)*4) {
-            customColor = lesbian[3];
+            color = lesbian[3];
         }
         else if (currentrow <= (rows/7)*5) {
-            customColor = lesbian[4];
+            color = lesbian[4];
         }
         else if (currentrow <= (rows/7)*6) {
-            customColor = lesbian[5];
+            color = lesbian[5];
         }
         else if (currentrow > (rows/7)*6) {
-            customColor = lesbian[6];
+            color = lesbian[6];
         }
     }
 
 
     else if (pride == "6") {
         if (currentrow <= (rows/5)*2) {
-            customColor = bi[0];
+            color = bi[0];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = bi[1];
+            color = bi[1];
         }
         else if (currentrow > (rows/5)*3) {
-            customColor = bi[2];
+            color = bi[2];
         }
     }
 
 
     else if (pride == "7") {
         if (currentrow <= (rows/3)) {
-            customColor = pan[0];
+            color = pan[0];
         }
         else if (currentrow <= (rows/3)*2) {
-            customColor = pan[1];
+            color = pan[1];
         }
         else if (currentrow > (rows/3)*2) {
-            customColor = pan[2];
+            color = pan[2];
         }
     }
 
 
     else if (pride == "8") {
         if (currentrow <= (rows/4)) {
-            customColor = ace[0];
+            color = ace[0];
         }
         else if (currentrow <= (rows/4)*2) {
-            customColor = ace[1];
+            color = ace[1];
         }
         else if (currentrow <= (rows/4)*3) {
-            customColor = ace[2];
+            color = ace[2];
         }
         else if (currentrow > (rows/4)*3) {
-            customColor = ace[3];
+            color = ace[3];
         }
     }
 
 
     else if (pride == "9") {
         if (currentrow <= (rows/5)) {
-            customColor = aromantic[0];
+            color = aromantic[0];
         }
         else if (currentrow <= (rows/5)*2) {
-            customColor = aromantic[1];
+            color = aromantic[1];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = aromantic[2];
+            color = aromantic[2];
         }
         else if (currentrow <= (rows/5)*4) {
-            customColor = aromantic[3];
+            color = aromantic[3];
         }
         else if (currentrow > (rows/5)*4) {
-            customColor = aromantic[4];
+            color = aromantic[4];
         }
     }
 
 
     else if (pride == "10") {
         if (currentrow <= (rows/7)) {
-            customColor = agender[0];
+            color = agender[0];
         }
         else if (currentrow <= (rows/7)*2) {
-            customColor = agender[1];
+            color = agender[1];
         }
         else if (currentrow <= (rows/7)*3) {
-            customColor = agender[2];
+            color = agender[2];
         }
         else if (currentrow <= (rows/7)*4) {
-            customColor = agender[3];
+            color = agender[3];
         }
         else if (currentrow <= (rows/7)*5) {
-            customColor = agender[2];
+            color = agender[2];
         }
         else if (currentrow <= (rows/7)*6) {
-            customColor = agender[1];
+            color = agender[1];
         }
         else if (currentrow > (rows/7)*6) {
-            customColor = agender[0];
+            color = agender[0];
         }
     }
 
 
     else if (pride == "11") {
         if (currentrow <= (rows/5)) {
-            customColor = aroace[0];
+            color = aroace[0];
         }
         else if (currentrow <= (rows/5)*2) {
-            customColor = aroace[1];
+            color = aroace[1];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = aroace[2];
+            color = aroace[2];
         }
         else if (currentrow <= (rows/5)*4) {
-            customColor = aroace[3];
+            color = aroace[3];
         }
         else if (currentrow <= (rows/5)*5) {
-            customColor = aroace[4];
+            color = aroace[4];
         }
     }
 
 
     else if (pride == "12") {
         if (currentrow <= (rows/5)) {
-            customColor = cupioromantic[0];
+            color = cupioromantic[0];
         }
         else if (currentrow <= (rows/5)*2) {
-            customColor = cupioromantic[1];
+            color = cupioromantic[1];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = cupioromantic[2];
+            color = cupioromantic[2];
         }
         else if (currentrow <= (rows/5)*4) {
-            customColor = cupioromantic[3];
+            color = cupioromantic[3];
         }
         else if (currentrow <= (rows/5)*5) {
-            customColor = cupioromantic[4];
+            color = cupioromantic[4];
         }
     }
 
 
     else if (pride == "13") {
         if (currentrow <= (rows/7)) {
-            customColor = demiboy[0];
+            color = demiboy[0];
         }
         else if (currentrow <= (rows/7)*2) {
-            customColor = demiboy[1];
+            color = demiboy[1];
         }
         else if (currentrow <= (rows/7)*3) {
-            customColor = demiboy[2];
+            color = demiboy[2];
         }
         else if (currentrow <= (rows/7)*4) {
-            customColor = demiboy[3];
+            color = demiboy[3];
         }
         else if (currentrow <= (rows/7)*5) {
-            customColor = demiboy[2];
+            color = demiboy[2];
         }
         else if (currentrow <= (rows/7)*6) {
-            customColor = demiboy[1];
+            color = demiboy[1];
         }
         else if (currentrow > (rows/7)*6) {
-            customColor = demiboy[0];
+            color = demiboy[0];
         }
     }
 
 
     else if (pride == "14") {
         if (currentrow <= (rows/7)) {
-            customColor = demigirl[0];
+            color = demigirl[0];
         }
         else if (currentrow <= (rows/7)*2) {
-            customColor = demigirl[1];
+            color = demigirl[1];
         }
         else if (currentrow <= (rows/7)*3) {
-            customColor = demigirl[2];
+            color = demigirl[2];
         }
         else if (currentrow <= (rows/7)*4) {
-            customColor = demigirl[3];
+            color = demigirl[3];
         }
         else if (currentrow <= (rows/7)*5) {
-            customColor = demigirl[2];
+            color = demigirl[2];
         }
         else if (currentrow <= (rows/7)*6) {
-            customColor = demigirl[1];
+            color = demigirl[1];
         }
         else if (currentrow > (rows/7)*6) {
-            customColor = demigirl[0];
+            color = demigirl[0];
         }
     }
 
@@ -602,32 +603,54 @@ function getColor(currentrow, index) {
     else if (pride == "15") {
 
         if (currentrow <= (rows/5)) {
-            customColor = omnisexual[0];
+            color = omnisexual[0];
         }
         else if (currentrow <= (rows/5)*2) {
-            customColor = omnisexual[1];
+            color = omnisexual[1];
         }
         else if (currentrow <= (rows/5)*3) {
-            customColor = omnisexual[2];
+            color = omnisexual[2];
         }
         else if (currentrow <= (rows/5)*4) {
-            customColor = omnisexual[3];
+            color = omnisexual[3];
         }
         else if (currentrow > (rows/5)*4) {
-            customColor = omnisexual[4];
+            color = omnisexual[4];
         }
     }
-
-
-
-
-
-
-
 }
 
 
-var framedata = Array.from({ length: (rows) }, () => new Array(columns).fill({character: null, opacity: 0, color: null}));
+
+
+
+const rainbowFlag = [
+    '#E40303',
+    '#FF8C00',
+    '#FFED00',
+    '#008026',
+    '#004CFF',
+    '#732982'
+];
+
+
+
+    
+function flag(flagData, currentrow, index) {
+    for (let flagDataRow = 0; flagDataRow <= flagData.length; flagDataRow++) {
+        if (currentrow <= (rows/5)*flagDataRow) {
+            color = flagData[flagDataRow]
+        }
+    }
+}
+
+function getCustomColor() {
+    if (customColor0) {
+        color = customColor0
+    }
+}
+
+var framedata = Array.from({ length: (rows) }, () => new Array(columns).fill({character: null, opacity: 0, color: null, brightness: 0}));
 
 // Function to draw the matrix effect
 function drawMatrix() {
@@ -641,10 +664,10 @@ function drawMatrix() {
     framedata = framedata.map(row =>
         row.map(val => {
             if (val.opacity == 0) {
-                return { character: null, opacity: 0, color: null }
+                return { character: null, opacity: 0, color: null , brightness: 0 }
             }
             else {
-                return { character: val.character, opacity: Math.max(0, val.opacity - 0.05), color: val.color }
+                return { character: val.character, opacity: Math.max(0, val.opacity - 0.05), color: val.color, brightness: Math.max(0, val.brightness - 10) }
             }
         }
     ));
@@ -659,7 +682,7 @@ function drawMatrix() {
             var alpha = framedata[row][column].opacity
 
 
-            // if (rand == "1" || randColors) {
+            // if (rand == "1" || randFlagScheme) {
             //     if (framedata[row][column].color) {
             //         var color = tinycolor(framedata[row][column].color)
             //         getColor(row, column)
@@ -667,26 +690,31 @@ function drawMatrix() {
             //     }
             // }
             // else {
-            var color = tinycolor("00ff00").setAlpha(alpha)
 
-            if (rand == "1" || randColors && framedata[row][column].color) {
-                customColor = tinycolor(framedata[row][column].color)
+            color = tinycolor("#00ff00").setAlpha(alpha)
+            getCustomColor()
+
+            if (rand == "1" || randFlagScheme && framedata[row][column].color) {
+                color = tinycolor(framedata[row][column].color)
             }
             else {
+                // flag(rainbowFlag, row, column)
                 getColor(row, column)
-                ctx.fillStyle = color.toRgbString()
+            }
+            if (color) {
+                color = tinycolor(color).setAlpha(alpha)
+            }
 
-            }
-            if (customColor) {
-                color = tinycolor(customColor).setAlpha(alpha)
-                ctx.fillStyle = color.toRgbString()
-            }
+
+            brightness = framedata[row][column].brightness
+
+
+            ctx.fillStyle = color.lighten(brightness).toRgbString()
 
 
 
             const char = framedata[row][column].character
             // const char = matrix[Math.floor(Math.random() * matrix.length)];
-
             ctx.font = 'bold 15px Cascadia Code';
 
             ctx.fillText(char, column * 20, row * 20);
@@ -700,9 +728,7 @@ function drawMatrix() {
 
 
         currentrow = Math.floor((position / 20));
-
-        getColor(currentrow, index)
-
+        // flag(rainbowFlag, currentrow, index)
 
 
 
@@ -715,22 +741,22 @@ function drawMatrix() {
             } else {
                 alpha = 1
             }
-            if (rand == "1" || randColors && !framedata[currentrow][index].character) {
-                if (!randColors) {
+            if (rand == "1" || randFlagScheme && !framedata[currentrow][index].character) {
+                if (!randFlagScheme) {
                     const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
                     var colorScheme = colorSchemes[randomColorSchemeIndex]
                     var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
                     var randomColor = colorScheme[randomColorIndex];
-                    customColor = randomColor;
+                    color = randomColor;
                 }
                 else {
-                    var colorScheme = colorSchemes[randColors]
+                    var colorScheme = colorSchemes[randFlagScheme]
                     var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
                     var randomColor = colorScheme[randomColorIndex];
-                    customColor = randomColor;
+                    color = randomColor;
                 }
                 if (currentrow < rows) {
-                    framedata[currentrow][index].color = customColor
+                    framedata[currentrow][index].color = color
                 }
             }
         }
@@ -739,14 +765,15 @@ function drawMatrix() {
         }
 
 
+        brightness = 35
 
+        // set text style
+        color = tinycolor("#00ff00")
+        getCustomColor()
+        getColor(currentrow, index)
+        color = color.setAlpha(alpha)
 
-        // Set text style
-        var color = tinycolor("00ff00").setAlpha(alpha)
-        if (customColor) {
-            color = tinycolor(customColor).setAlpha(alpha)
-        }
-        ctx.fillStyle = color.toRgbString()
+        ctx.fillStyle = color.lighten(brightness).toRgbString()
 
 
 
@@ -754,7 +781,8 @@ function drawMatrix() {
         if (currentrow < rows) {
             framedata[currentrow][index].opacity = color.getAlpha()
             framedata[currentrow][index].character = char
-            framedata[currentrow][index].color = color.toHexString()
+            framedata[currentrow][index].color = color.getOriginalInput()
+            framedata[currentrow][index].brightness = brightness
         }
 
 
@@ -830,25 +858,25 @@ async function drawCustomAnim() {
 }
 
 // Function to continuously update and render the animation
-function animate() {
+function main() {
     if (!anim) {
         drawMatrix()
-        setTimeout(animate, (1000/25));
+        setTimeout(main, (1000/25));
     }
     else {
         if (anim == 1) {
             setTimeout(() => { drawCustomAnim(); }, 0);
             setTimeout(() => { playBadApple(); }, 0);
-            setTimeout(animate, (1000/33));
+            setTimeout(main, (1000/33));
         }
         else if (anim == 2) {
             setTimeout(() => { drawCustomAnim(); }, 0);
             setTimeout(() => { playBadApple(); }, 1000);
-            setTimeout(animate, (1000/24));
+            setTimeout(main, (1000/24));
         }
         else {
             drawCustomAnim()
-            setTimeout(animate, (1000/20));
+            setTimeout(main, (1000/20));
         }
 
     }
@@ -858,4 +886,4 @@ function animate() {
 var badAppleAudio = new Audio('./BadApple.ogg')
 
 // Start the animation
-animate();
+main();
