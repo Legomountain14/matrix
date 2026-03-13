@@ -2,27 +2,49 @@ const canvas = document.getElementById('matrixCanvas');
 const ctx = canvas.getContext('2d');
 
 
-// Set canvas dimensions
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-const columns = Math.floor((canvas.width / 20)+1);
-// Number of columns
-const rows = Math.floor((canvas.height / 20)+2);
-const rowsPX = rows*20+20
 
 const matrix_old = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()*&^%+-/~{[|`]}'; // Characters to be displayed
 const matrix_maybe = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ二コソヤ日012345789Z:・¦｜."=*+-<>'; // Characters to be displayed
 const matrix = '259817:."=*+-¦|_Zｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ'; // Characters to be displayed
 
 
-const stripewidth = Math.round(columns/12.5)
 
 
-// Create an array of column positions
-const columnPositions = Array(columns).fill(0);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getDimensions() {
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    columns = Math.floor((canvas.width / 20)+1);
+    // Number of columns
+    rows = Math.floor((canvas.height / 20)+2);
+    rowsPX = rows*20+20
+    stripewidth = Math.round(columns/12.5)
+    // Create an array of column positions
+    columnPositions = Array(columns).fill(0);
+
+    framedata = Array.from({ length: (rows) }, () => new Array(columns).fill({character: null, opacity: 0, color: null, brightness: 0}));
+
+}
+getDimensions()
 
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -43,7 +65,15 @@ const customColor3 = searchParams.get("color3")
 
 
 
-
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
 
 
 var element = document.getElementById("html");
@@ -54,6 +84,16 @@ if (showCursor == "1") {
 else {
     element.classList.add("noCursor");
 }
+
+document.getElementsByTagName("BODY")[0].onresize = function() {getDimensions()};
+
+
+
+document.addEventListener('keypress', function(event) {
+    if (event.key == "f") {
+        openFullscreen(element)
+    }
+});
 
 
 
@@ -650,7 +690,6 @@ function getCustomColor() {
     }
 }
 
-var framedata = Array.from({ length: (rows) }, () => new Array(columns).fill({character: null, opacity: 0, color: null, brightness: 0}));
 
 // Function to draw the matrix effect
 function drawMatrix() {
