@@ -58,6 +58,9 @@ const randFlagScheme = parseInt(searchParams.get("randc"))
 const showCursor = searchParams.get("cursor")
 const anim = searchParams.get("anim")
 
+
+
+
 const customColor0 = searchParams.get("color")
 const customColor1 = searchParams.get("color1")
 const customColor2 = searchParams.get("color2")
@@ -774,6 +777,12 @@ function drawMatrix() {
 
 
         var alpha
+        brightness = 35
+
+        // set text style
+        color = tinycolor("#00ff00")
+        getCustomColor()
+        getColor(currentrow, index)
         if (currentrow < rows) {
             if (framedata[currentrow][index].opacity > 0) {
                 alpha = framedata[currentrow][index].opacity
@@ -786,13 +795,13 @@ function drawMatrix() {
                     var colorScheme = colorSchemes[randomColorSchemeIndex]
                     var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
                     var randomColor = colorScheme[randomColorIndex];
-                    color = randomColor;
+                    color = tinycolor(randomColor);
                 }
                 else {
                     var colorScheme = colorSchemes[randFlagScheme]
                     var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
                     var randomColor = colorScheme[randomColorIndex];
-                    color = randomColor;
+                    color = tinycolor(randomColor);
                 }
                 if (currentrow < rows) {
                     framedata[currentrow][index].color = color
@@ -804,12 +813,6 @@ function drawMatrix() {
         }
 
 
-        brightness = 35
-
-        // set text style
-        color = tinycolor("#00ff00")
-        getCustomColor()
-        getColor(currentrow, index)
         color = color.setAlpha(alpha)
 
         ctx.fillStyle = color.lighten(brightness).toRgbString()
@@ -869,8 +872,7 @@ async function drawCustomAnim() {
         var animation = animation4
         ctx.font = 'bold 25px Cascadia Code';
     }
-    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
 
 
