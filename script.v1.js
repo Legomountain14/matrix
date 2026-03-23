@@ -244,142 +244,142 @@ function getColor(currentrow, index) {
     if (pride == "1") {
         if (currentrow <= (rows/6)) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[5];
+                color = tinycolor(progressPride[5])
             }
         }
         else if (currentrow <= (rows/6)*2) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[6];
+                color = tinycolor(progressPride[6])
             }
         }
         else if (currentrow <= (rows/6)*3) {
             if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[7];
+                color = tinycolor(progressPride[7])
             }
         }
         else if (currentrow <= (rows/6)*4) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[8];
+                color = tinycolor(progressPride[8])
             }
         }
         else if (currentrow <= (rows/6)*5) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[9];
+                color = tinycolor(progressPride[9])
             }
         }
         else if (currentrow > (rows/6)*5) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[10];
+                color = tinycolor(progressPride[10])
             }
         }
         else if (currentrow > (rows/6)*6) {
             if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                color = progressPride[0];
+                color = tinycolor(progressPride[0])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                color = progressPride[2];
+                color = tinycolor(progressPride[2])
             }
             else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                color = progressPride[3];
+                color = tinycolor(progressPride[3])
             }
             else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                color = progressPride[4];
+                color = tinycolor(progressPride[4])
             }
             else {
-                color = progressPride[1];
+                color = tinycolor(progressPride[1])
             }
         }
     }
@@ -387,22 +387,22 @@ function getColor(currentrow, index) {
 
     else if (pride == "2") {
         if (currentrow <= (rows/6)) {
-            color = rainbow[0];
+            color = tinycolor(rainbow[0])
         }
         else if (currentrow <= (rows/6)*2) {
-            color = rainbow[1];
+            color = tinycolor(rainbow[1])
         }
         else if (currentrow <= (rows/6)*3) {
-            color = rainbow[2];
+            color = tinycolor(rainbow[2])
         }
         else if (currentrow <= (rows/6)*4) {
-            color = rainbow[3];
+            color = tinycolor(rainbow[3])
         }
         else if (currentrow <= (rows/6)*5) {
-            color = rainbow[4];
+            color = tinycolor(rainbow[4])
         }
         else if (currentrow > (rows/6)*5) {
-            color = rainbow[5];
+            color = tinycolor(rainbow[5])
         }
     }
 
@@ -410,16 +410,16 @@ function getColor(currentrow, index) {
     else if (pride == "3") {
 
         if (currentrow <= (rows/4)) {
-            color = nonbinary[0];
+            color = tinycolor(nonbinary[0])
         }
         else if (currentrow <= (rows/4)*2) {
-            color = nonbinary[1];
+            color = tinycolor(nonbinary[1])
         }
         else if (currentrow <= (rows/4)*3) {
-            color = nonbinary[2];
+            color = tinycolor(nonbinary[2])
         }
         else if (currentrow > (rows/4)*3) {
-            color = nonbinary[3];
+            color = tinycolor(nonbinary[3])
         }
     }
 
@@ -427,218 +427,218 @@ function getColor(currentrow, index) {
     else if (pride == "4") {
 
         if (currentrow <= (rows/5)) {
-            color = trans[0];
+            color = tinycolor(trans[0])
         }
         else if (currentrow <= (rows/5)*2) {
-            color = trans[1];
+            color = tinycolor(trans[1])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = trans[2];
+            color = tinycolor(trans[2])
         }
         else if (currentrow <= (rows/5)*4) {
-            color = trans[1];
+            color = tinycolor(trans[1])
         }
         else if (currentrow > (rows/5)*4) {
-            color = trans[0];
+            color = tinycolor(trans[0])
         }
     }
 
 
     else if (pride == "5") {
         if (currentrow <= (rows/7)) {
-            color = lesbian[0];
+            color = tinycolor(lesbian[0])
         }
         else if (currentrow <= (rows/7)*2) {
-            color = lesbian[1];
+            color = tinycolor(lesbian[1])
         }
         else if (currentrow <= (rows/7)*3) {
-            color = lesbian[2];
+            color = tinycolor(lesbian[2])
         }
         else if (currentrow <= (rows/7)*4) {
-            color = lesbian[3];
+            color = tinycolor(lesbian[3])
         }
         else if (currentrow <= (rows/7)*5) {
-            color = lesbian[4];
+            color = tinycolor(lesbian[4])
         }
         else if (currentrow <= (rows/7)*6) {
-            color = lesbian[5];
+            color = tinycolor(lesbian[5])
         }
         else if (currentrow > (rows/7)*6) {
-            color = lesbian[6];
+            color = tinycolor(lesbian[6])
         }
     }
 
 
     else if (pride == "6") {
         if (currentrow <= (rows/5)*2) {
-            color = bi[0];
+            color = tinycolor(bi[0])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = bi[1];
+            color = tinycolor(bi[1])
         }
         else if (currentrow > (rows/5)*3) {
-            color = bi[2];
+            color = tinycolor(bi[2])
         }
     }
 
 
     else if (pride == "7") {
         if (currentrow <= (rows/3)) {
-            color = pan[0];
+            color = tinycolor(pan[0])
         }
         else if (currentrow <= (rows/3)*2) {
-            color = pan[1];
+            color = tinycolor(pan[1])
         }
         else if (currentrow > (rows/3)*2) {
-            color = pan[2];
+            color = tinycolor(pan[2])
         }
     }
 
 
     else if (pride == "8") {
         if (currentrow <= (rows/4)) {
-            color = ace[0];
+            color = tinycolor(ace[0])
         }
         else if (currentrow <= (rows/4)*2) {
-            color = ace[1];
+            color = tinycolor(ace[1])
         }
         else if (currentrow <= (rows/4)*3) {
-            color = ace[2];
+            color = tinycolor(ace[2])
         }
         else if (currentrow > (rows/4)*3) {
-            color = ace[3];
+            color = tinycolor(ace[3])
         }
     }
 
 
     else if (pride == "9") {
         if (currentrow <= (rows/5)) {
-            color = aromantic[0];
+            color = tinycolor(aromantic[0])
         }
         else if (currentrow <= (rows/5)*2) {
-            color = aromantic[1];
+            color = tinycolor(aromantic[1])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = aromantic[2];
+            color = tinycolor(aromantic[2])
         }
         else if (currentrow <= (rows/5)*4) {
-            color = aromantic[3];
+            color = tinycolor(aromantic[3])
         }
         else if (currentrow > (rows/5)*4) {
-            color = aromantic[4];
+            color = tinycolor(aromantic[4])
         }
     }
 
 
     else if (pride == "10") {
         if (currentrow <= (rows/7)) {
-            color = agender[0];
+            color = tinycolor(agender[0])
         }
         else if (currentrow <= (rows/7)*2) {
-            color = agender[1];
+            color = tinycolor(agender[1])
         }
         else if (currentrow <= (rows/7)*3) {
-            color = agender[2];
+            color = tinycolor(agender[2])
         }
         else if (currentrow <= (rows/7)*4) {
-            color = agender[3];
+            color = tinycolor(agender[3])
         }
         else if (currentrow <= (rows/7)*5) {
-            color = agender[2];
+            color = tinycolor(agender[2])
         }
         else if (currentrow <= (rows/7)*6) {
-            color = agender[1];
+            color = tinycolor(agender[1])
         }
         else if (currentrow > (rows/7)*6) {
-            color = agender[0];
+            color = tinycolor(agender[0])
         }
     }
 
 
     else if (pride == "11") {
         if (currentrow <= (rows/5)) {
-            color = aroace[0];
+            color = tinycolor(aroace[0])
         }
         else if (currentrow <= (rows/5)*2) {
-            color = aroace[1];
+            color = tinycolor(aroace[1])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = aroace[2];
+            color = tinycolor(aroace[2])
         }
         else if (currentrow <= (rows/5)*4) {
-            color = aroace[3];
+            color = tinycolor(aroace[3])
         }
         else if (currentrow <= (rows/5)*5) {
-            color = aroace[4];
+            color = tinycolor(aroace[4])
         }
     }
 
 
     else if (pride == "12") {
         if (currentrow <= (rows/5)) {
-            color = cupioromantic[0];
+            color = tinycolor(cupioromantic[0])
         }
         else if (currentrow <= (rows/5)*2) {
-            color = cupioromantic[1];
+            color = tinycolor(cupioromantic[1])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = cupioromantic[2];
+            color = tinycolor(cupioromantic[2])
         }
         else if (currentrow <= (rows/5)*4) {
-            color = cupioromantic[3];
+            color = tinycolor(cupioromantic[3])
         }
         else if (currentrow <= (rows/5)*5) {
-            color = cupioromantic[4];
+            color = tinycolor(cupioromantic[4])
         }
     }
 
 
     else if (pride == "13") {
         if (currentrow <= (rows/7)) {
-            color = demiboy[0];
+            color = tinycolor(demiboy[0])
         }
         else if (currentrow <= (rows/7)*2) {
-            color = demiboy[1];
+            color = tinycolor(demiboy[1])
         }
         else if (currentrow <= (rows/7)*3) {
-            color = demiboy[2];
+            color = tinycolor(demiboy[2])
         }
         else if (currentrow <= (rows/7)*4) {
-            color = demiboy[3];
+            color = tinycolor(demiboy[3])
         }
         else if (currentrow <= (rows/7)*5) {
-            color = demiboy[2];
+            color = tinycolor(demiboy[2])
         }
         else if (currentrow <= (rows/7)*6) {
-            color = demiboy[1];
+            color = tinycolor(demiboy[1])
         }
         else if (currentrow > (rows/7)*6) {
-            color = demiboy[0];
+            color = tinycolor(demiboy[0])
         }
     }
 
 
     else if (pride == "14") {
         if (currentrow <= (rows/7)) {
-            color = demigirl[0];
+            color = tinycolor(demigirl[0])
         }
         else if (currentrow <= (rows/7)*2) {
-            color = demigirl[1];
+            color = tinycolor(demigirl[1])
         }
         else if (currentrow <= (rows/7)*3) {
-            color = demigirl[2];
+            color = tinycolor(demigirl[2])
         }
         else if (currentrow <= (rows/7)*4) {
-            color = demigirl[3];
+            color = tinycolor(demigirl[3])
         }
         else if (currentrow <= (rows/7)*5) {
-            color = demigirl[2];
+            color = tinycolor(demigirl[2])
         }
         else if (currentrow <= (rows/7)*6) {
-            color = demigirl[1];
+            color = tinycolor(demigirl[1])
         }
         else if (currentrow > (rows/7)*6) {
-            color = demigirl[0];
+            color = tinycolor(demigirl[0])
         }
     }
 
@@ -646,19 +646,19 @@ function getColor(currentrow, index) {
     else if (pride == "15") {
 
         if (currentrow <= (rows/5)) {
-            color = omnisexual[0];
+            color = tinycolor(omnisexual[0])
         }
         else if (currentrow <= (rows/5)*2) {
-            color = omnisexual[1];
+            color = tinycolor(omnisexual[1])
         }
         else if (currentrow <= (rows/5)*3) {
-            color = omnisexual[2];
+            color = tinycolor(omnisexual[2])
         }
         else if (currentrow <= (rows/5)*4) {
-            color = omnisexual[3];
+            color = tinycolor(omnisexual[3])
         }
         else if (currentrow > (rows/5)*4) {
-            color = omnisexual[4];
+            color = tinycolor(omnisexual[4])
         }
     }
 }
